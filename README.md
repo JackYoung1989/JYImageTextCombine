@@ -1,7 +1,7 @@
 # JYImageTextCombine
 图文混排 图文并茂 NSAttributedString转html  html转NSAttributedString 
 
-![image](https://github.com/JackYoung1989/JYImageTextCombine/JYImageTextCombine/JYImageTextCombine/JYImageTextCombine/imageTextCombine.gif)
+![image](https://github.com/JackYoung1989/JYImageTextCombine/blob/master/JYImageTextCombine/JYImageTextCombine/imageTextCombine.gif)
 
 使用方法：
 
