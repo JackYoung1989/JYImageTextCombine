@@ -32,6 +32,9 @@
 @property (nonatomic,assign)CGFloat imageWidth;
 @property (nonatomic,assign)CGFloat wordFont;
 
+//光标位置
+@property (nonatomic,assign)NSRange curserRange;
+
 @end
 
 @implementation JYImageTextCombineViewController
@@ -48,6 +51,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"图文并排";
+    self.automaticallyAdjustsScrollViewInsets = false;
+    
     _wordFont = 30.0;
     _imageWidth = 200;
     
@@ -65,6 +70,16 @@
     if (_oldHtmlString != nil && ![_oldHtmlString isEqualToString:@""]) {
         [self setOldStringToAttributeString:_oldHtmlString];
     }
+    
+    if (_pickerController == nil) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            _pickerController = [[UIImagePickerController alloc] init];
+            _pickerController.view.backgroundColor = [UIColor redColor];
+            _pickerController.delegate = self;
+            _pickerController.allowsEditing = YES;
+        });
+    }
+    NSLog(@"光标位置%ld——%ld",_curserRange.location,_curserRange.length);
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -74,8 +89,13 @@
         [self.view endEditing:true];
         return NO;
     }
-    
+
     return true;
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    NSLog(@"光标位置%ld——%ld",textView.selectedRange.location,textView.selectedRange.length);
+    _curserRange = textView.selectedRange;
 }
 
 - (void)setOldStringToAttributeString:(NSString *)oldHtmlString {
@@ -137,7 +157,7 @@
     NSAttributedString * att = _serviceContentTextView.attributedText;
     NSMutableAttributedString * resultAtt = [[NSMutableAttributedString alloc]initWithAttributedString:att];
 //    __weak __block UITextView * copy_self = self; //枚举出所有的附件字符串
-    [att enumerateAttributesInRange:NSMakeRange(0, att.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) { //key-NSAttachment //NSTextAttachment value类型
+    [att enumerateAttributesInRange:NSMakeRange(0, att.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
         NSTextAttachment * textAtt = attrs[@"NSAttachment"];//从字典中取得那一个图片
         if (textAtt) {
             if (self.hasEndDiv == true) {
@@ -147,7 +167,6 @@
             }
             
             UIImage * image = textAtt.image;
-//            [resultAtt replaceCharactersInRange:range withString:@"~"];
             [_resultString insertString:[NSString stringWithFormat:@"`%ld`",self.imageIndex] atIndex:0];
             [self.imageMarkArray addObject:[NSString stringWithFormat:@"`%ld`",self.imageIndex]];
             [self.imageUploadedArray addObject:image];
@@ -187,7 +206,6 @@
 - (void)uploadHeadImage:(UIImage *)image imageIndex:(NSInteger)index{
     //上传地址
     NSString *postUrl = [NSString stringWithFormat:@"%@/new/index.php?c=merchant&a=saveImg",kBaseUrl];
-    NSLog(@"上传照片url=%@",postUrl);
     NSData *data =UIImageJPEGRepresentation(image,1.0);
     NSString *pictureDataString=[data base64Encoding];
     NSDictionary *dict = @{@"content":[NSString stringWithFormat:@"data:image/jpg;base64,%@",pictureDataString]};
@@ -197,7 +215,7 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
         if ([responseObject[@"code"] boolValue]) {
-            [_imageUploadedNameArray addObject:responseObject[@"fileName"]];
+            [_imageUploadedNameArray addObject:responseObject[@"fileName"]];//返回的是文件的名字，不是全路径
             
             NSArray *array = [self.resultString componentsSeparatedByString:self.imageMarkArray[index]];
             NSString *imageDir = appDelegate.webImageDir;
@@ -248,7 +266,7 @@
         return;
     }
     NSMutableString *tempString = [[NSMutableString alloc] init];
-    for (int i = 0; i < imageArray.count; i ++) {
+    for (int i = 0; i < imageArray.count; i ++) {//删除的照片名称（非全路径），用逗号隔开
         if (i != imageArray.count - 1) {
             [tempString appendString:[NSString stringWithFormat:@"%@,",imageArray[i]]];
         } else {
@@ -362,12 +380,6 @@
 }
 
 - (IBAction)addImgButtonTouched:(id)sender {
-    if (_pickerController == nil) {
-        _pickerController = [[UIImagePickerController alloc] init];
-        _pickerController.view.backgroundColor = [UIColor redColor];
-        _pickerController.delegate = self;
-        _pickerController.allowsEditing = YES;
-    }
 
     UIAlertController*ZhengC=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction*XiangCe=[UIAlertAction actionWithTitle:@"从手机相册获取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -378,7 +390,6 @@
         
         _pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentViewController:_pickerController animated:YES completion:nil];
-        
         
     }];
     UIAlertAction*  Cancel=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -404,7 +415,7 @@
     
     // 创建带有图片的富文本
     NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
-    [attri appendAttributedString:string];
+    [attri replaceCharactersInRange:_curserRange withAttributedString:string];
     
     // 用label的attributedText属性来使用富文本
     _serviceContentTextView.attributedText = attri;

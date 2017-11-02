@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,13 +23,13 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7P-ne-RSB">
                     <rect key="frame" x="0.0" y="622" width="187.5" height="45"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="0.74901960779999999" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="nXE-07-Mhe"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="添加图片">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Add Picture">
+                        <color key="titleColor" red="0.0" green="0.25098039215686274" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="addImgButtonTouched:" destination="-1" eventType="touchUpInside" id="2AA-38-nut"/>
@@ -36,18 +37,21 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNy-zo-yaM">
                     <rect key="frame" x="187" y="622" width="187.5" height="45"/>
-                    <color key="backgroundColor" red="0.14901960784313725" green="0.40000000000000002" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.47058823529999999" blue="0.054901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="8Ph-tH-oXj"/>
                     </constraints>
-                    <state key="normal" title="完成"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" red="0.0" green="0.25098039220000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="okButtonTouched:" destination="-1" eventType="touchUpInside" id="sQv-jc-OzN"/>
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入内容" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GtR-eM-GTN">
-                    <rect key="frame" x="5" y="84" width="370" height="538"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="5" y="20" width="365" height="602"/>
+                    <color key="tintColor" red="0.20784313730000001" green="0.56470588239999997" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                 </textView>
@@ -58,15 +62,15 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="mNy-zo-yaM" secondAttribute="bottom" id="FNy-m3-CyU"/>
                 <constraint firstItem="GtR-eM-GTN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="IB6-10-JYW"/>
                 <constraint firstItem="R7P-ne-RSB" firstAttribute="top" secondItem="GtR-eM-GTN" secondAttribute="bottom" id="KiZ-Pp-5MW"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GtR-eM-GTN" secondAttribute="trailing" id="RWd-CJ-Tf3"/>
-                <constraint firstItem="GtR-eM-GTN" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="64" id="aKe-zl-Tdo"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="GtR-eM-GTN" secondAttribute="trailing" constant="5" id="RWd-CJ-Tf3"/>
+                <constraint firstItem="GtR-eM-GTN" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="aKe-zl-Tdo"/>
                 <constraint firstItem="R7P-ne-RSB" firstAttribute="width" secondItem="mNy-zo-yaM" secondAttribute="width" id="auA-QU-U3O"/>
                 <constraint firstItem="mNy-zo-yaM" firstAttribute="leading" secondItem="R7P-ne-RSB" secondAttribute="trailing" id="cCu-Wd-lev"/>
                 <constraint firstItem="R7P-ne-RSB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="hPb-K4-yTp"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="R7P-ne-RSB" secondAttribute="bottom" id="tNf-Ml-KhA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-237" y="6"/>
+            <point key="canvasLocation" x="-381" y="-2"/>
         </view>
     </objects>
 </document>

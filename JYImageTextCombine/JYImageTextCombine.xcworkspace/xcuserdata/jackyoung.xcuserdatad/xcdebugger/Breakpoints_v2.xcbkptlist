@@ -6,31 +6,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JYImageTextCombine/JYImageTextCombineViewController.m"
-            timestampString = "531224072.895933"
+            timestampString = "531304721.419352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "-okButtonTouched:"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "-uploadHeadImage:imageIndex:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JYImageTextCombine/JYImageTextCombineViewController.m"
-            timestampString = "531224072.896386"
+            timestampString = "531304721.419445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-uploadHeadImage:imageIndex:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,27 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JYImageTextCombine/JYImageTextCombineViewController.m"
-            timestampString = "531224072.896703"
+            timestampString = "531304721.419504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "-uploadHeadImage:imageIndex:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JYImageTextCombine/JYImageTextCombineViewController.m"
-            timestampString = "531224072.897014"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-uploadHeadImage:imageIndex:"
             landmarkType = "7">
          </BreakpointContent>
