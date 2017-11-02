@@ -40,6 +40,7 @@
 		F2C9A6B51FA9771C00F006A0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		F2C9A6B81FA977D300F006A0 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F2C9A6B91FA977D300F006A0 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F2C9A6BC1FAB1C9300F006A0 /* imageTextCombine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = imageTextCombine.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 				F2C9A6A21FA96F6900F006A0 /* Assets.xcassets */,
 				F2C9A6A41FA96F6900F006A0 /* LaunchScreen.storyboard */,
 				F2C9A6B51FA9771C00F006A0 /* Podfile */,
+				F2C9A6BC1FAB1C9300F006A0 /* imageTextCombine.gif */,
 				F2C9A6B71FA977D300F006A0 /* MBProgressHUD */,
 				F2C9A6A71FA96F6900F006A0 /* Info.plist */,
 				F2C9A6A81FA96F6900F006A0 /* main.m */,
