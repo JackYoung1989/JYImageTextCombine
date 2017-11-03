@@ -14,11 +14,11 @@
 * 1.修改服务器上传和下载图片的网络接口。
 * 2.设置项目需要的文本字体大小等属性。
     
-    /*
-    * oldHtmlString:包含两种标签<div>和<img>两种标签，文本用<div>，图片用"<img src="http://...." style=width:99%/>"表示
-    * 每个标签中间没有空格
-    * returnBlock:是返回的字符串格式同上
-    */
+        /*
+        * oldHtmlString:包含两种标签<div>和<img>两种标签，文本用<div>，图片用"<img src="http://...." style=width:99%/>"表示
+        * 每个标签中间没有空格
+        * returnBlock:是返回的字符串格式同上
+        */
 
 # 数据格式
 
