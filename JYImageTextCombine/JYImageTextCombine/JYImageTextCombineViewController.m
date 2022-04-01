@@ -72,7 +72,7 @@
     }
     
     if (_pickerController == nil) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             _pickerController = [[UIImagePickerController alloc] init];
             _pickerController.view.backgroundColor = [UIColor redColor];
             _pickerController.delegate = self;
