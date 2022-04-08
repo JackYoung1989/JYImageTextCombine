@@ -16,7 +16,6 @@
 		F2C9A6A91FA96F6900F006A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C9A6A81FA96F6900F006A0 /* main.m */; };
 		F2C9A6B21FA972A300F006A0 /* JYImageTextCombineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C9A6AF1FA972A200F006A0 /* JYImageTextCombineViewController.m */; };
 		F2C9A6B61FA9771C00F006A0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F2C9A6B51FA9771C00F006A0 /* Podfile */; };
-		F2C9A6BA1FA9793300F006A0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C9A6B91FA977D300F006A0 /* MBProgressHUD.m */; };
 		F2C9A6BB1FA9968A00F006A0 /* JYImageTextCombineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C9A6B01FA972A200F006A0 /* JYImageTextCombineViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +37,6 @@
 		F2C9A6B01FA972A200F006A0 /* JYImageTextCombineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JYImageTextCombineViewController.xib; sourceTree = "<group>"; };
 		F2C9A6B11FA972A200F006A0 /* JYImageTextCombineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYImageTextCombineViewController.h; sourceTree = "<group>"; };
 		F2C9A6B51FA9771C00F006A0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
-		F2C9A6B81FA977D300F006A0 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		F2C9A6B91FA977D300F006A0 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F2C9A6BD1FAB23BF00F006A0 /* screenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenShot.png; sourceTree = "<group>"; };
 		F2C9A6BE1FAB262D00F006A0 /* imageTextCombine.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = imageTextCombine.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,20 +104,10 @@
 				F2C9A6B51FA9771C00F006A0 /* Podfile */,
 				F2C9A6BD1FAB23BF00F006A0 /* screenShot.png */,
 				F2C9A6BE1FAB262D00F006A0 /* imageTextCombine.gif */,
-				F2C9A6B71FA977D300F006A0 /* MBProgressHUD */,
 				F2C9A6A71FA96F6900F006A0 /* Info.plist */,
 				F2C9A6A81FA96F6900F006A0 /* main.m */,
 			);
 			path = JYImageTextCombine;
-			sourceTree = "<group>";
-		};
-		F2C9A6B71FA977D300F006A0 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				F2C9A6B81FA977D300F006A0 /* MBProgressHUD.h */,
-				F2C9A6B91FA977D300F006A0 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +121,7 @@
 				F2C9A6921FA96F6800F006A0 /* Sources */,
 				F2C9A6931FA96F6800F006A0 /* Frameworks */,
 				F2C9A6941FA96F6800F006A0 /* Resources */,
-				4448BD4EE5A1F90D6B955B62 /* [CP] Embed Pods Frameworks */,
-				04DBC6EFADA18398EC059B98 /* [CP] Copy Pods Resources */,
+				BD5309DA33008C90DD1DE9EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,34 +181,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04DBC6EFADA18398EC059B98 /* [CP] Copy Pods Resources */ = {
+		BD5309DA33008C90DD1DE9EB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JYImageTextCombine/Pods-JYImageTextCombine-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JYImageTextCombine/Pods-JYImageTextCombine-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4448BD4EE5A1F90D6B955B62 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JYImageTextCombine/Pods-JYImageTextCombine-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JYImageTextCombine/Pods-JYImageTextCombine-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E22F8BCD82A926BACBB3D96D /* [CP] Check Pods Manifest.lock */ = {
@@ -252,7 +226,6 @@
 			files = (
 				F2C9A6B21FA972A300F006A0 /* JYImageTextCombineViewController.m in Sources */,
 				F2C9A69E1FA96F6800F006A0 /* ViewController.m in Sources */,
-				F2C9A6BA1FA9793300F006A0 /* MBProgressHUD.m in Sources */,
 				F2C9A6A91FA96F6900F006A0 /* main.m in Sources */,
 				F2C9A69B1FA96F6800F006A0 /* AppDelegate.m in Sources */,
 			);

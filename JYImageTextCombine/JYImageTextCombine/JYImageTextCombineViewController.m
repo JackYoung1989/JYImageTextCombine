@@ -8,7 +8,7 @@
 
 #import "JYImageTextCombineViewController.h"
 #import "AppDelegate.h"
-#import "MBProgressHUD.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <AFNetworking/AFNetworking.h>
 
 #define appDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
@@ -197,7 +197,7 @@
 
 - (void)uploadImageArray {//_imageUploadedArray,_imageMarkArray
     _imageIndex = 0;//用来计数
-    [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    [SVProgressHUD showInfoWithStatus:@"图片上传中..."];
     for (int i = 0; i < _imageUploadedArray.count; i ++) {
         [self uploadHeadImage:_imageUploadedArray[i] imageIndex:i];
     }
@@ -206,7 +206,7 @@
 - (void)uploadHeadImage:(UIImage *)image imageIndex:(NSInteger)index{
     //上传地址
     NSString *postUrl = [NSString stringWithFormat:@"%@/new/index.php?c=merchant&a=saveImg",kBaseUrl];
-    NSData *data =UIImageJPEGRepresentation(image,1.0);
+    NSData *data = UIImageJPEGRepresentation(image,1.0);
     NSString *pictureDataString=[data base64Encoding];
     NSDictionary *dict = @{@"content":[NSString stringWithFormat:@"data:image/jpg;base64,%@",pictureDataString]};
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -230,7 +230,7 @@
             }
             _imageIndex ++;
             if (_imageIndex == _imageUploadedArray.count) {//图片都上传完了
-                [MBProgressHUD hideHUDForView:self.view animated:true];
+                [SVProgressHUD dismiss];
                 NSLog(@"result is _____:%@",self.resultString);
                 
                 //删除在编辑中删掉的图片
@@ -256,7 +256,7 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"上传失败");
-        [MBProgressHUD hideHUDForView:self.view animated:true];
+        [SVProgressHUD showErrorWithStatus:@"上传失败"];
     }];
 }
 
@@ -274,7 +274,7 @@
         }
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    [SVProgressHUD showInfoWithStatus:@"正在删除..."];
     //上传地址
     NSString *postUrl = [NSString stringWithFormat:@"%@/new/index.php?c=merchant&a=delImg2",kBaseUrl];
     NSDictionary *dict = @{@"imgDate":appDelegate.webImageDir,
@@ -285,10 +285,10 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //记录返回的图片名字
-        [MBProgressHUD hideHUDForView:self.view animated:true];
+        [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"上传失败");
-        [MBProgressHUD hideHUDForView:self.view animated:true];
+        [SVProgressHUD dismiss];
     }];
 }
 
