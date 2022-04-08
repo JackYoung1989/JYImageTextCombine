@@ -54,7 +54,7 @@
     self.automaticallyAdjustsScrollViewInsets = false;
     
     _wordFont = 30.0;
-    _imageWidth = 200;
+    _imageWidth = 150;
     
     _resultString = [[NSMutableString alloc] init];
     _imageUploadedArray = [[NSMutableArray alloc] init];
